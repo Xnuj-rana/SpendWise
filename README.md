@@ -2,6 +2,8 @@
 
 A beginner-friendly, menu-driven **Personal Expense Tracker built using C++ and Object-Oriented Programming (OOP)**, with a web frontend created using HTML, CSS, and JavaScript. SpendWise helps users record income and expenses and review their financial summary.
 
+![image alt](https://github.com/Xnuj-rana/SpendWise/blob/8288730a4f42c54c718fb5de55414b850089705c/Screenshot%202026-10-28%20220345.png)
+
 ## ✨ Features
 
 - ➕ Add income and expense transactions
