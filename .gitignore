@@ -1,0 +1,5 @@
+
+SpendWise.exe
+*.exe
+transactions.txt
+.vscode/

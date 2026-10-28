@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise | Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h2 class="logo">◈ SpendWise</h2>
+            <p class="muted">PERSONAL FINANCE</p>
+
+            <nav>
+                <a href="#dashboard" class="active">▦ Dashboard</a>
+                <a href="#transactions">↔ Transactions</a>
+                <a href="#analytics">◷ Analytics</a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <span class="avatar">🤗</span>
+                <div>
+                    <strong>Xnuj's Wallet</strong>
+                    <p class="muted">Personal account</p>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main" id="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="muted">YOUR FINANCES AT A GLANCE</p>
+                    <h1>Dashboard</h1>
+                </div>
+                <button id="themeBtn" class="icon-btn" title="Toggle theme">☼</button>
+            </header>
+
+            <section class="welcome">
+                <div>
+                    <p class="muted">WELCOME BACK XNUJ RANA👋</p>
+                    <h2>Take control of your money.</h2>
+                    <p class="muted">Every rupee has a purpose.</p>
+                </div>
+                <button id="addBtn" class="primary">＋ Add transaction</button>
+            </section>
+
+            <section class="stats">
+                <article class="stat-card">
+                    <p class="muted">Total Balance</p>
+                    <h2 id="balance">₹0</h2>
+                    <span>Income minus expenses</span>
+                </article>
+                <article class="stat-card">
+                    <p class="muted">Total Income</p>
+                    <h2 id="income" class="green">₹0</h2>
+                    <span>Money received</span>
+                </article>
+                <article class="stat-card">
+                    <p class="muted">Total Expenses</p>
+                    <h2 id="expenses" class="red">₹0</h2>
+                    <span>Money spent</span>
+                </article>
+            </section>
+
+            <section class="content-grid" id="analytics">
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Spending overview</h3>
+                            <p class="muted">Expenses by category</p>
+                        </div>
+                    </div>
+                    <div class="chart-wrap">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </article>
+
+                <article class="panel">
+                    <h3>Monthly budget</h3>
+                    <p class="muted">Your spending limit</p>
+                    <h2 id="budgetAmount">₹5,000</h2>
+                    <div class="progress">
+                        <div id="budgetBar"></div>
+                    </div>
+                    <p id="budgetText" class="muted">₹0 spent so far</p>
+                    <label for="budgetInput">Set monthly budget (₹)</label>
+                    <div class="budget-form">
+                        <input id="budgetInput" type="number"
+                               min="1" placeholder="Enter budget">
+                        <button id="saveBudget" class="secondary">Save</button>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel transactions" id="transactions">
+                <div class="panel-heading">
+                    <div>
+                        <h3>Recent transactions</h3>
+                        <p class="muted">Your latest financial activity</p>
+                    </div>
+                    <select id="filter">
+                        <option value="all">All transactions</option>
+                        <option value="income">Income only</option>
+                        <option value="expense">Expenses only</option>
+                    </select>
+                </div>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Transaction</th>
+                                <th>Category</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionList"></tbody>
+                    </table>
+                </div>
+                <p id="emptyMessage" class="muted empty" hidden>
+                    No transactions yet. Add your first one!
+                </p>
+            </section>
+
+            <footer>SpendWise © 2026 · Manage money mindfully.</footer>
+        </main>
+    </div>
+
+    <dialog id="transactionDialog">
+        <form id="transactionForm">
+            <div class="panel-heading">
+                <h2>Add transaction</h2>
+                <button type="button" id="closeDialog" class="icon-btn">✕</button>
+            </div>
+
+            <label for="type">Transaction type</label>
+            <select id="type" required>
+                <option value="expense">Expense</option>
+                <option value="income">Income</option>
+            </select>
+
+            <label for="title">Description</label>
+            <input id="title" required maxlength="60"
+                   placeholder="e.g. Lunch">
+
+            <label for="category">Category</label>
+            <select id="category" required>
+                <option>Food</option>
+                <option>Transport</option>
+                <option>Shopping</option>
+                <option>Education</option>
+                <option>Bills</option>
+                <option>Entertainment</option>
+                <option>Health</option>
+                <option>Salary</option>
+                <option>Pocket Money</option>
+                <option>Other</option>
+            </select>
+
+            <label for="amount">Amount (₹)</label>
+            <input id="amount" type="number" min="0.01"
+                   step="0.01" required placeholder="0.00">
+
+            <label for="date">Date</label>
+            <input id="date" type="date" required>
+
+            <button type="submit" class="primary full">
+                Save transaction
+            </button>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
