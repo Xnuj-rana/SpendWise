@@ -4,6 +4,10 @@ A beginner-friendly, menu-driven **Personal Expense Tracker built using C++ and 
 
 ![image alt](https://github.com/Xnuj-rana/SpendWise/blob/8288730a4f42c54c718fb5de55414b850089705c/Screenshot%202026-10-28%20220345.png)
 
+![image alt](https://github.com/Xnuj-rana/SpendWise/blob/e67154184ad2bb5938629532677a9373764e5447/Screenshot%202026-10-30%20120850.png)
+
+![image alt](https://github.com/Xnuj-rana/SpendWise/blob/e67154184ad2bb5938629532677a9373764e5447/Screenshot%202026-10-30%20120857.png)
+
 ## ✨ Features
 
 - ➕ Add income and expense transactions
